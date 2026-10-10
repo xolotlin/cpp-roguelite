@@ -1,5 +1,5 @@
-#include "Items.h"
-#include "constants.h"
+#include "Items.hpp"
+#include "constants.hpp"
 
 using namespace ItemConstants;
 using namespace WeaponConstants;
@@ -30,7 +30,10 @@ void Item::setDescription(const std::string& description) {
 }
 
 void Item::setValue(unsigned int value) {
-    this->value = value;
+    if (value >= 0)
+        this->value = value;
+    else
+        std::err << "Error: Current value: " << value << " needs to be greater than or equal to zero." << std::endl;
 }
 
 void Item::setWeight(unsigned int weight) {
