@@ -1,3 +1,4 @@
-main
-/build
-/.vscode 
+# Hide build folder 
+build
+# Hide .vscode folder
+.vscode 
