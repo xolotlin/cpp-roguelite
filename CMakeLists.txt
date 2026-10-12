@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 2.6.1)
 
 project(Game LANGUAGES CXX)
 

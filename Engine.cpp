@@ -23,14 +23,18 @@ void Engine::processEvents() {
         switch (event.type) {
             case sf::Event::Closed:
                 window.close();
+                std::cout << "Window close requested. Closing Window" << std::endl;
                 break;
                 
-            case sf::Event::Closed:
-                window.pause();
+            case sf::Event::LostFocus:
+                isPaused = true;
+                std::cout << "Window Lost Focus. Pausing game" << std::endl;
+
                 break;
 
             case sf::Event::GainedFocus:
-                window.resume();
+                isPaused = false;
+                std::cout << "Window Gained Focus. Resuming game" << std::endl;
                 break;
 
             case sf::Event::KeyPressed:
