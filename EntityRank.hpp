@@ -1,7 +1,7 @@
-#ifndef PLAYERRANKS_H
-#define PLAYERRANKS_H
+#ifndef ENTITYRANK_HPP
+#define ENTITYRANK_HPP
 
-enum class PlayerRank {
+enum class EntityRank{
     NOVICE,
     STONE,
     BRONZE,

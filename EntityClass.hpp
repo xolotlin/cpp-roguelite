@@ -1,7 +1,7 @@
-#ifndef PLAYERCLASSES_H
-#define PLAYERCLASSES_H
+#ifndef ENTITYCLASS_HPP
+#define ENTITYCLASS_HPP
 
-enum class PlayerClass {
+enum class EntityClass {
     KNIGHT,
     WARRIOR,
     SAGE,

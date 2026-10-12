@@ -1,12 +1,8 @@
-#include "Player.hpp"
+#include "Engine.hpp"
 
-int main() {
-    Player player1;
-
-    std::cout << "Your Name: " << std::endl;
-    cin >> player1.name;
-
-    
+int main () {
+    Engine engine;
+    engine.run();
 
     return 0;
 }

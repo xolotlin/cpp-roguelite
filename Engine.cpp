@@ -1,5 +1,5 @@
 #include "Engine.hpp"
-#include "constants.hpp"
+#include "Constants.hpp"
 
 #include <iostream>
 
@@ -11,8 +11,13 @@ Engine::Engine()
 
 void Engine::run() {
     while(window.isOpen()) {
+
+        sf::Time elapsed = deltaClock.restart();
+        float dt = elapsed.asSeconds();
         processEvents();
-        update();
+        if (!isPaused) {
+            update(dt);
+        }
         render();
     }
 }
@@ -48,11 +53,16 @@ void Engine::processEvents() {
     }
 }
 
-void Engine::update() {
+void Engine::update(float dt) {
     // Update player, enemies, map, events, etc..
+    player.update(dt);
+    player.loadAssets();
 }
 
 void Engine::render() {
     window.clear(sf::Color::Black);
+
+    player.render(window);
+
     window.display();
 }

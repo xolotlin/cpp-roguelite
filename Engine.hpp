@@ -3,8 +3,11 @@
 
 #pragma once
 
+#include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+
+#include "Player.hpp"
 
 #include <string>
 #include <memory>
@@ -18,10 +21,14 @@ class Engine {
 
     private:
         void processEvents();
-        void update();
+        void update(float dt);
         void render();
 
         sf::RenderWindow window;
+        bool isPaused; // Pause any core processes toward client
+
+        sf::Clock deltaClock;
+        Player player;
 };
 
 #endif
