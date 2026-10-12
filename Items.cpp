@@ -1,5 +1,5 @@
 #include "Items.hpp"
-#include "constants.hpp"
+#include "Constants.hpp"
 
 using namespace ItemConstants;
 using namespace WeaponConstants;
@@ -33,7 +33,7 @@ void Item::setValue(unsigned int value) {
     if (value >= 0)
         this->value = value;
     else
-        std::err << "Error: Current value: " << value << " needs to be greater than or equal to zero." << std::endl;
+        std::cerr << "Error: Current value: " << value << " needs to be greater than or equal to zero." << std::endl;
 }
 
 void Item::setWeight(unsigned int weight) {

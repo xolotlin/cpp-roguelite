@@ -1,8 +1,11 @@
-#include "PlayerInventory.h"
-#include "constants.h"
+#include "PlayerInventory.hpp"
+#include "constants.hpp"
 
-PlayerInventory::PlayerInventory() : inventoryItems(DEFAULT_INVENTORY_STARTER_PACK), 
-currentInventorySpace(DEFAULT_INVENTORY_SPACE), maxInventorySpace(DEFAULT_MAX_INVENTORY_SPACE) {}
+PlayerInventory::PlayerInventory() :
+    inventoryItems(ItemConstants::DEFAULT_INVENTORY_STARTER_PACK), 
+    currentInventorySpace(ItemConstants::DEFAULT_INVENTORY_SPACE), 
+    maxInventorySpace(ItemConstants::DEFAULT_MAX_INVENTORY_SPACE) 
+{}
 
 PlayerInventory::~PlayerInventory() {}
 
@@ -21,14 +24,3 @@ unsigned PlayerInventory::getMaximumInventorySpace() const {
 std::vector<Item> PlayerInventory::getInventoryItems() const {
     return inventoryItems;
 }
-
-
-
-/*
-Twenty years from now, youll be more disapointed 
-by the things you didn't do, 
-then by the ones that you did do.
-So throw off the bow lines, sail away from the safe harbour, 
-catch the trade winds in your sails
-Expl0ore, dream, discover.
-*/
