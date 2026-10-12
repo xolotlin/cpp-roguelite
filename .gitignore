@@ -2,3 +2,5 @@
 build
 # Hide .vscode folder
 .vscode 
+# Hide SFML folder
+SFML
