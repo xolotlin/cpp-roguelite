@@ -10,18 +10,41 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Graphics, Window, System and Audio Module
 find_package(SFML 2 COMPONENTS graphics window system audio REQUIRED)
 
+# =============================
+# + Source file list 
+# =============================
+set(CORE_SOURCES
+    Source/main.cpp
+    Source/Core/Engine/Engine.cpp
+    Source/Core/Constants.cpp
+)
+
+set(ENTITY_SOURCES
+    Source/Entities/Player.cpp
+    Source/Entities/Entity.cpp
+    Source/Entities/Items/Items.cpp
+)
+
+set(SYSTEM_SOURCES
+    Source/Systems/PlayerInventory.cpp
+)
+
+set(WORLD_SOURCES
+    Source/World/Tile.cpp
+    Source/World/Map.cpp
+)
+
 # Include executable files
 add_executable(Game 
-    main.cpp 
-    Engine.cpp 
-    Player.cpp
-    Entity.cpp
-    Constants.cpp
-    PlayerInventory.cpp
-    Items.cpp
-    Tile.cpp
-    Map.cpp
+    ${CORE_SOURCES}
+    ${ENTITY_SOURCES}
+    ${SYSTEM_SOURCES}
+    ${WORLD_SOURCES}
 )
+
+# =============================
+# + Target Configurations
+# =============================
 
 target_link_libraries(Game PRIVATE
 	sfml-graphics
@@ -29,6 +52,15 @@ target_link_libraries(Game PRIVATE
 	sfml-system
 	sfml-audio
 )
+
+if(MSVC)
+    target_compile_options(Game PRIVATE /W4 /wx)
+else()
+    target_compile_options(Game PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+# Include header files
+target_include_directories(Game PRIVATE Include)
 
 # Automatically copy Assets folder to build directory on compilation
 add_custom_command(TARGET Game POST_BUILD
