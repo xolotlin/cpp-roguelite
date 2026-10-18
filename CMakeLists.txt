@@ -19,6 +19,8 @@ add_executable(Game
     Constants.cpp
     PlayerInventory.cpp
     Items.cpp
+    Tile.cpp
+    Map.cpp
 )
 
 target_link_libraries(Game PRIVATE
