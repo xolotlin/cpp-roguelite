@@ -8,6 +8,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "Player.hpp"
+#include "Map.hpp"
 
 #include <string>
 #include <memory>
@@ -26,6 +27,8 @@ class Engine {
 
         sf::RenderWindow window;
         bool isPaused; // Pause any core processes toward client
+
+        Map map;
 
         sf::Clock deltaClock;
         Player player;

@@ -62,6 +62,8 @@ void Engine::update(float dt) {
 void Engine::render() {
     window.clear(sf::Color::Black);
 
+    map.render(window);
+
     player.render(window);
 
     window.display();
