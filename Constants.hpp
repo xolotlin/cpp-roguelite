@@ -1,6 +1,8 @@
 #ifndef CONSTANTS_HPP
 #define CONSTANTS_HPP
 
+#include "SFML/Graphics.hpp"
+
 #include <vector>
 #include <string>
 
@@ -14,6 +16,8 @@
 #include "ItemElement.hpp"
 #include "ItemSlot.hpp"
 #include "Items.hpp"
+
+#include "TileType.hpp"
 
 /*
     *
@@ -75,5 +79,40 @@ namespace WindowConstants{
     inline constexpr unsigned int WINDOW_WIDTH = 800;
     inline constexpr unsigned int WINDOW_HEIGHT = 600;
 };
+
+/*
+*
+* Map Object Constants 
+*
+*/
+
+namespace MapConstants {
+    extern const float MAP_TILE_SIZE;
+    // DEFAULT SIZED MAP
+    inline constexpr unsigned int DEFAULT_MAP_WIDTH = 100;
+    inline constexpr unsigned int DEFAULT_MAP_HEIGHT = 500; // Pixel?
+    // LARGE SIZED MAP
+    inline constexpr unsigned int LARGE_MAP_WIDTH = 200;
+    inline constexpr unsigned int LARGE_MAP_HEIGHT = 1000;
+};
+
+/*
+*
+* Tile Object Constants 
+*
+*/
+
+namespace TileConstants {
+    // Default Tile Constants
+    extern const float DEFAULT_TILE_SIZE;
+    extern const sf::Vector2f DEFAULT_TILE_POSITION;
+    extern const sf::Color DEFAULT_TILE_COLOR;
+    extern const bool DEFAULT_TILE_IS_SOLID;
+
+    inline constexpr TileType DEFAULT_TILE_TYPE = static_cast<TileType>(1);
+
+};
+
+
 
 #endif

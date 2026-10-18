@@ -12,3 +12,14 @@ namespace ItemConstants {
     const float ITEM_VALUE_EMPTY = 0.0f;
     const float ITEM_WEIGHT_EMPTY = 0.0f;
 }
+
+namespace MapConstants {
+    const float MAP_TILE_SIZE = 32.f;
+};
+
+namespace TileConstants {
+    const float DEFAULT_TILE_SIZE = 32.f;
+    const sf::Color DEFAULT_TILE_COLOR = sf::Color::Transparent;
+    const bool DEFAULT_TILE_IS_SOLID = false;
+    const sf::Vector2f DEFAULT_TILE_POSITION = {0.f, 0.f};
+};
