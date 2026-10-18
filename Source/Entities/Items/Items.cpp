@@ -1,5 +1,5 @@
-#include "Items.hpp"
-#include "Constants.hpp"
+#include "Entities/Items/Items.hpp"
+#include "Core/Constants.hpp"
 
 using namespace ItemConstants;
 using namespace WeaponConstants;

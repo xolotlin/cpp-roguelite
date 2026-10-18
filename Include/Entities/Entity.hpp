@@ -4,8 +4,8 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
-#include "EntityClass.hpp"
-#include "EntityRank.hpp"
+#include "Entities/EntityClass.hpp"
+#include "Entities/EntityRank.hpp"
 
 #include <string>
 

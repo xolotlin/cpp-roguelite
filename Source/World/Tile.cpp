@@ -1,5 +1,5 @@
-#include "Tile.hpp"
-#include "Constants.hpp"
+#include "World/Tile.hpp"
+#include "Core/Constants.hpp"
 
 // Default constructor
 Tile::Tile() 

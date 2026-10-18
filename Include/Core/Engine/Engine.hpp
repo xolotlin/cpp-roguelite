@@ -7,8 +7,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include "Player.hpp"
-#include "Map.hpp"
+#include "Entities/Player.hpp"
+#include "World/Map.hpp"
 
 #include <string>
 #include <memory>

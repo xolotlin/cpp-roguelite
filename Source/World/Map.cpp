@@ -1,5 +1,5 @@
-#include "Map.hpp"
-#include "Constants.hpp"
+#include "World/Map.hpp"
+#include "Core/Constants.hpp"
 #include <iostream>
 
 // Default constructor

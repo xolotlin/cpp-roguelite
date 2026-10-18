@@ -5,8 +5,8 @@
 
 // Include core graphics headers
 
-#include "Entity.hpp"
-#include "PlayerInventory.hpp"
+#include "Entities/Entity.hpp"
+#include "Systems/PlayerInventory.hpp"
 
 #include <vector>
 #include <string>

@@ -4,7 +4,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-#include "TileType.hpp"
+#include "World/TileType.hpp"
 
 class Tile {
     private:

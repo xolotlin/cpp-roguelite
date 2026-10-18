@@ -1,6 +1,4 @@
-#include "Constants.hpp"
-
-#include "Constants.hpp"
+#include "Core/Constants.hpp"
 
 namespace ItemConstants {
     const std::vector<Item> DEFAULT_INVENTORY_STARTER_PACK = {}; 

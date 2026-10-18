@@ -6,18 +6,18 @@
 #include <vector>
 #include <string>
 
-#include "ItemType.hpp"
-#include "ItemRarity.hpp"
-#include "ItemCategory.hpp"
-#include "ItemEffect.hpp"
-#include "ItemStatus.hpp"
-#include "ItemQuality.hpp"
-#include "ItemMaterial.hpp"
-#include "ItemElement.hpp"
-#include "ItemSlot.hpp"
-#include "Items.hpp"
+#include "Entities/Items/ItemType.hpp"
+#include "Entities/Items/ItemRarity.hpp"
+#include "Entities/Items/ItemCategory.hpp"
+#include "Entities/Items/ItemEffect.hpp"
+#include "Entities/Items/ItemStatus.hpp"
+#include "Entities/Items/ItemQuality.hpp"
+#include "Entities/Items/ItemMaterial.hpp"
+#include "Entities/Items/ItemElement.hpp"
+#include "Entities/Items/ItemSlot.hpp"
+#include "Entities/Items/Items.hpp"
 
-#include "TileType.hpp"
+#include "World/TileType.hpp"
 
 /*
     *

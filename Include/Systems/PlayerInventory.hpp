@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "Items.hpp"
+#include "Entities/Items/Items.hpp"
 
 class PlayerInventory {
     private:

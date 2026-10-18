@@ -4,7 +4,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
-#include "Tile.hpp"
+#include "World/Tile.hpp"
 
 #include <vector>
 

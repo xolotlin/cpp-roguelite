@@ -1,5 +1,5 @@
-#include "PlayerInventory.hpp"
-#include "constants.hpp"
+#include "Systems/PlayerInventory.hpp"
+#include "Core/Constants.hpp"
 
 PlayerInventory::PlayerInventory() :
     inventoryItems(ItemConstants::DEFAULT_INVENTORY_STARTER_PACK), 
