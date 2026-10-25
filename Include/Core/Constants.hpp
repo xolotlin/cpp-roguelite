@@ -76,8 +76,8 @@ namespace ConsumableConstants {};
 */
 namespace WindowConstants{
     inline const std::string WINDOW_TITLE = "Roguelite";
-    inline constexpr unsigned int WINDOW_WIDTH = 800;
-    inline constexpr unsigned int WINDOW_HEIGHT = 600;
+    inline constexpr unsigned int WINDOW_WIDTH = 1080;
+    inline constexpr unsigned int WINDOW_HEIGHT = 720;
 };
 
 /*
@@ -89,8 +89,8 @@ namespace WindowConstants{
 namespace MapConstants {
     extern const float MAP_TILE_SIZE;
     // DEFAULT SIZED MAP
-    inline constexpr unsigned int DEFAULT_MAP_WIDTH = 100;
-    inline constexpr unsigned int DEFAULT_MAP_HEIGHT = 500; // Pixel?
+    inline constexpr unsigned int DEFAULT_MAP_WIDTH = 40;
+    inline constexpr unsigned int DEFAULT_MAP_HEIGHT = 30; // Pixel?
     // LARGE SIZED MAP
     inline constexpr unsigned int LARGE_MAP_WIDTH = 200;
     inline constexpr unsigned int LARGE_MAP_HEIGHT = 1000;
@@ -111,6 +111,50 @@ namespace TileConstants {
 
     inline constexpr TileType DEFAULT_TILE_TYPE = static_cast<TileType>(1);
 
+};
+
+/*
+*
+* Entity Object Constants
+*
+*/
+
+namespace EntityConstants {
+    inline const std::string DEFAULT_NAME = "Entity";
+    inline const sf::Vector2f DEFAULT_POSITION = {0.0f, 0.0f};
+    inline const sf::Vector2f DEFAULT_VELOCITY = {0.0f, 0.0f};
+
+    extern const float DEFAULT_WIDTH;
+    extern const float DEFAULT_HEIGHT;
+    extern const float DEFAULT_HEALTH_POINTS;
+    extern const float DEFAULT_PROTECTION_POINTS;
+    extern const float DEFAULT_STRENGTH_POINTS;
+    extern const float DEFAULT_BUFFER_STRENGTH_POINTS;
+    extern const float DEFAULT_SPEED;
+    extern const float DEFAULT_BUFFER_SPEED;
+    extern const float DEFAULT_STAMINA;
+};
+
+/*
+*
+* Player Object Constants
+*
+*/
+
+namespace PlayerConstants {
+    inline const std::string DEFAULT_NAME = "Player";
+    inline const sf::Vector2f DEFAULT_POSITION = {0.0f, 0.0f};
+    inline const sf::Vector2f DEFAULT_VELOCITY = {0.0f, 0.0f};
+
+    extern const float DEFAULT_WIDTH;
+    extern const float DEFAULT_HEIGHT;
+    extern const float DEFAULT_HEALTH_POINTS;
+    extern const float DEFAULT_PROTECTION_POINTS;
+    extern const float DEFAULT_STRENGTH_POINTS;
+    extern const float DEFAULT_BUFFER_STRENGTH_POINTS;
+    extern const float DEFAULT_SPEED;
+    extern const float DEFAULT_BUFFER_SPEED;
+    extern const float DEFAULT_STAMINA;
 };
 
 
