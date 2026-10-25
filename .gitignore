@@ -4,3 +4,5 @@ build
 .vscode 
 # Hide SFML folder
 SFML
+# /docs
+docs
