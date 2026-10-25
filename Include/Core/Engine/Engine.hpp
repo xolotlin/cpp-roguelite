@@ -24,11 +24,18 @@ class Engine {
         void processEvents();
         void update(float dt);
         void render();
+        void cameraMovement(float dt);
 
-        sf::RenderWindow window;
+        sf::RenderWindow window; // create window object
+        sf::View camera; // create camera object
+        float cameraSpeed = 500.0f;
+
         bool isPaused; // Pause any core processes toward client
+        bool isVsyncEnabled; // is Vertitcal Sync enabled
+        bool isMouseCursorVisible; // is mouse cursor visiable
+        int windowFrameRateLimit; // Frame rate limit: 60 fps
 
-        Map map;
+        Map map; // create Map object
 
         sf::Clock deltaClock;
         Player player;
