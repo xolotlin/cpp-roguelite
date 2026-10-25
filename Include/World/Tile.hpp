@@ -22,6 +22,7 @@ class Tile {
 
         // Setter tile functions
         void setType(TileType type);
+        void setSolid(bool isSolid);
         void setPosition(float x, float y);
         void setColor(sf::Color color);
 

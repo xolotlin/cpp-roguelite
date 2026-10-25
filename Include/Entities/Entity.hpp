@@ -4,10 +4,13 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
+#include "World/Map.hpp"
 #include "Entities/EntityClass.hpp"
 #include "Entities/EntityRank.hpp"
 
 #include <string>
+
+class Map;
 
 class Entity {
     protected:
@@ -21,15 +24,41 @@ class Entity {
         float bufferSpeed;
         float stamina;
 
+        // Physics & dimensions
         sf::Vector2f position; // current world position
+        sf::Vector2f velocity;
+        float width;
+        float height;
+        bool isGrounded;
+
+        // Visuals
         sf::Sprite sprite;
         sf::Texture texture;
+        sf::RectangleShape shape; // prototype box
 
         EntityClass entityClass;
         EntityRank entityRank;
 
+        // Map & world
+        Map* m_mapPtr = nullptr;
+
     public:
-        Entity();
+        Entity(); //default 
+        Entity( // parameratized
+            std::string entityName, 
+            float healthPoints, 
+            float protectionPoints, 
+            float strengthPoints, 
+            float bufferStrengthPoints,
+            float speed,
+            float bufferSpeed,
+            float stamina,
+            float width,
+            float height,
+            bool isGrounded,
+            sf::Vector2f position,
+            sf::Vector2f velocity
+        ); 
         virtual ~Entity();
 
         virtual void loadAssets();                  // Loads the texture from file
@@ -45,6 +74,7 @@ class Entity {
         void setPosition(float x, float y);
         void setRank(EntityRank entityRank);
         void setClass(EntityClass entityClass);
+        void setMap(Map* m_mapPtr);
 
         // Getter entity functions
 
@@ -53,9 +83,15 @@ class Entity {
         float getArmorPoints() const;
         float getStrengthPoints() const;
         float getBufferStrengthPoints() const;
+        float getWidth() const;
+        float getHeight() const;
         sf::Vector2f getPosition() const;
+        sf::Vector2f getVelocity() const;
         EntityClass getClass() const;
         EntityRank getRank() const;
+
+        sf::RectangleShape& getShape();
+
 
 };
 

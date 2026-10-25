@@ -2,7 +2,7 @@
 #define MAP_HPP
 
 #pragma once
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 
 #include "World/Tile.hpp"
 
@@ -14,10 +14,12 @@ class Map {
         int height;
         float tileSize; 
 
-        std::vector<std::vector<Tile>> grid;
+        sf::Vector2f spawnPosition;
+
+        std::vector<std::vector<Tile>> grid; // grid data
     public:
-        Map();
-        Map(int mapWidth, int mapHeight, float size);
+        Map(); // Default constructor
+        Map(int mapWidth, int mapHeight, float size); // parameritized constructor
         ~Map();
 
         void render(sf::RenderWindow& window);
@@ -31,9 +33,11 @@ class Map {
         // Getter map functions
         int getWidth() const;
         int getHeight() const;
+        sf::Vector2f getSpawnPosition() const { return spawnPosition; }
 
-        
+        sf::VertexArray mapVerticies;
+        void buildVertexArray();
         
         
 };
-#endif
+#endif // MAP_HPP

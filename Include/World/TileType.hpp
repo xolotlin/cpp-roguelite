@@ -1,11 +1,13 @@
-#ifndef TILETYPE_HPP
-#define TILETYPE_HPP
+#ifndef TILE_TYPE_HPP
+#define TILE_TYPE_HPP
 
 enum class TileType {
     Empty = 0,
-    Ground,
+    Ground, // Flat Ground
     Platform,
     Hazard
 };
 
-#endif 
+
+
+#endif // TILE_TYPE_HPP
