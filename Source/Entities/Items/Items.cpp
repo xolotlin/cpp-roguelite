@@ -13,6 +13,13 @@ type(ITEM_TYPE_EMPTY), rarity(ITEM_RARITY_EMPTY), effect(ITEM_EFFECT_EMPTY),
 status(ITEM_STATUS_EMPTY), quality(ITEM_QUALITY_EMPTY), material(ITEM_MATERIAL_EMPTY), 
 element(ITEM_ELEMENT_EMPTY), slot(ITEM_SLOT_EMPTY) {}
 
+Item::Item(std::string name, std::string description, unsigned int value, unsigned int weight,
+            ItemType type, ItemRarity rarity, ItemEffect effect, ItemStatus status,
+            ItemQuality quality, ItemMaterial material, ItemElement element, ItemSlot slot) :
+            name(name), description(description), value(value), weight(weight),
+            type(type), rarity(rarity), effect(effect), status(status),
+            quality(quality), material(material), element(element), slot(slot) {}
+
 Item::~Item() {}
 
 void Item::setName(const std::string& name) {
@@ -154,6 +161,17 @@ void Item::displayItemType() const {
 
 Weapon::Weapon() : damage(), range(), attackSpeed(), criticalChance(), 
 durability(), levelRequirement(), classRequirement() {}
+
+Weapon(std::string name, std::string description, unsigned int value, unsigned int weight,
+        ItemType type, ItemRarity rarity, ItemEffect effect, ItemStatus, 
+        ItemQuality quality, ItemMaterial material, ItemElement element, ItemSlot slot,
+        unsigned int damage, unsigned int range, unsigned int attackSpeed, 
+        unsigned int criticalChance, unsigned int durability, unsigned int levelReq,
+        unsigned int classReq, bool isEnchanted, bool isDualWieldable) :
+    Item(name, description, value, weight, type, rarity, effect, status, quality, material, element, slot),
+    damage(damage), range(range), attackSpeed(attackSpeed), criticalChance(criticalChance),
+    durability(durability), levelRequirement(levelReq), classRequirement(classReq),
+    isEnchanted(isEnchanted), isDualWieldable(isDualWieldable) {}
 
 Weapon::~Weapon() {}
 

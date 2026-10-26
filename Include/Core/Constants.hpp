@@ -18,6 +18,8 @@
 #include "Entities/Items/Items.hpp"
 
 #include "World/TileType.hpp"
+#include "World/Biome.hpp"
+#include "World/Room.hpp"
 
 /*
     *
@@ -66,6 +68,12 @@ namespace WeaponConstants {
 
 };
 
+namespace WeaponRegistry {
+    inline const Item WOODEN_SWORD {
+        
+    };
+};
+
 namespace ArmorConstants {};
 namespace ConsumableConstants {};
 
@@ -94,6 +102,68 @@ namespace MapConstants {
     // LARGE SIZED MAP
     inline constexpr unsigned int LARGE_MAP_WIDTH = 200;
     inline constexpr unsigned int LARGE_MAP_HEIGHT = 1000;
+};
+
+/*
+*
+* Room Object Constants 
+*
+*/
+
+namespace RoomConstants {
+    // Standard Dungeon Constants
+    inline const sf::Color DEFAULT_ROOM_TILE_COLOR = sf::Color::Red;
+
+    
+
+};
+
+/*
+*
+* Biome Object Constants 
+*
+*/
+
+namespace BiomeRegistry {
+    // Stone Dungeon
+    inline const Biome STONE_DUNGEON = {
+        "Stone Dungeon",
+        sf::Color(35, 35, 45),      // Ground
+        sf::Color(20, 20, 25),      // Floor paths
+        sf::Color(140, 90, 40)      // Platforms
+    };
+
+    // Desert Dungeon
+    inline const Biome DESERT_DUNGEON = {
+        "Desert Dungeon",
+        sf::Color(222, 199, 31),      // Ground
+        sf::Color(194, 174, 29),      // Floor paths
+        sf::Color(150, 138, 50)      // Platforms
+    };
+
+    // Forest Dungeon
+    inline const Biome FOREST_DUNGEON = {
+        "Forest Dungeon",
+        sf::Color(63, 204, 54),      // Ground
+        sf::Color(99, 230, 92),      // Floor paths
+        sf::Color(36, 128, 30)      // Platforms
+    };
+    
+    // Ice Dungeon
+    inline const Biome ICE_DUNGEON = {
+        "Ice Dungeon",
+        sf::Color(80, 120, 160),      // Ground
+        sf::Color(140, 180, 210),      // Floor paths
+        sf::Color(200, 240, 255)      // Platforms
+    };
+
+    // Magma Dungeon
+    inline const Biome MAGMA_DUNGEON = {
+        "Magma Dungeon",
+        sf::Color(43, 36, 29),      // Ground
+        sf::Color(222, 105, 0),      // Floor paths
+        sf::Color(102, 88, 75)      // Platforms
+    };
 };
 
 /*

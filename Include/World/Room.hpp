@@ -9,11 +9,12 @@
 #include "World/Map.hpp"
 
 class Room {
-    private:
+    public:
         int posX, posY;                         // Grid position 
         int roomTileWidth, roomTileHeight;      // Width and height in tiles
         
-        RoomType type;
+        RoomType type;                          // Room type
+        sf::Color roomColor;                    // Room Color
         bool isCleared;
 
     public:

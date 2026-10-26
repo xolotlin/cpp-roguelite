@@ -36,6 +36,9 @@ class Item {
 
     public:
         Item();
+        Item(std::string name, std::string description, unsigned int value, unsigned int weight,
+            ItemType type, ItemRarity rarity, ItemEffect effect, ItemStatus status,
+            ItemQuality quality, ItemMaterial material, ItemElement element, ItemSlot slot);
         ~Item();
 
         void setName(const std::string& name);
@@ -108,6 +111,12 @@ class Weapon : public Item {
 
     public:
         Weapon();
+        Weapon(std::string name, std::string description, unsigned int value, unsigned int weight,
+            ItemType type, ItemRarity rarity, ItemEffect effect, ItemStatus, 
+            ItemQuality quality, ItemMaterial material, ItemElement element, ItemSlot slot,
+            unsigned int damage, unsigned int range, unsigned int attackSpeed, 
+            unsigned int criticalChance, unsigned int durability, unsigned int levelReq,
+            unsigned int classReq, bool isEnchanted, bool isDualWieldable);
         ~Weapon();
 
         void setDamage(unsigned int damage);

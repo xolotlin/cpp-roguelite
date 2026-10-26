@@ -59,94 +59,86 @@ void Player::update(float dt) {
     const float jumpForce = -420.0f;
     const float tileSize = MapConstants::MAP_TILE_SIZE;
 
-    velocity.x = 0.0f; // Static, no motion
+    float targetXVelocity = 0.0f;
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        velocity.x = -speed;
+        targetXVelocity = -speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        velocity.x = speed;
+        targetXVelocity = speed;
     }
+
+    // Interpolation current velocity toward velocity
+    float smoothFactor = 10.0f;
+    velocity.x += (targetXVelocity - velocity.x) * smoothFactor * dt;
 
     velocity.y += gravity * dt; // Apply gravity every frame
 
+    // Handle jumping
     if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && isGrounded) {
         velocity.y = jumpForce;
         isGrounded = false;
     }
 
-    // Horizontal Collision & movement
-    position.x += velocity.x * dt;
-    shape.setPosition(position);
+     position.x += velocity.x * dt;
 
-    float left = position.x;
-    float right = position.x + width;
-    float top = position.y;
-    float bottom = position.y + height;
+    // Dynamic tile mapping bounds recalculation
+    int tileTop = static_cast<int>(position.y / tileSize);
+    int tileBottom = static_cast<int>((position.y + height - 0.1f) / tileSize); // Sub-pixel padding prevents corner-snagging
 
-    int tileLeft = static_cast<int>(left / tileSize);
-    int tileRight = static_cast<int>(right / tileSize);
-    int tileTop = static_cast<int>(top / tileSize);
-    int tileBottom = static_cast<int>(bottom / tileSize);
-
-    // Check if velocity (with respect to x) is positve
     if (velocity.x > 0.0f) 
     {
+        int tileRight = static_cast<int>((position.x + width) / tileSize);
         for (int y = tileTop; y <= tileBottom; ++y) {
             if (m_mapPtr->isSolid(tileRight, y)) {
                 position.x = tileRight * tileSize - width;
-                velocity.x = 0.0f;
+                velocity.x = 0.0f; // Kill velocity on impact with a wall
                 break;
             }
         }
     } 
-    // Check if velocity (with respect to x) is negative
     else if (velocity.x < 0.0f) 
     {
+        int tileLeft = static_cast<int>(position.x / tileSize);
         for (int y = tileTop; y <= tileBottom; ++y) {
             if (m_mapPtr->isSolid(tileLeft, y)) {
                 position.x = (tileLeft + 1) * tileSize;
-                velocity.x = 0.0f;
+                velocity.x = 0.0f; // Kill velocity on impact with a wall
                 break;
             }
         }
     }
 
-    // Veritcal collision & movement
+    //Vertical Handle
     isGrounded = false;
     position.y += velocity.y * dt;
-    shape.setPosition(position);
 
-    left = position.x;
-    right = position.x + width;
-    top = position.y;
-    bottom = position.y + height;
-
-    tileLeft = static_cast<int>(left / tileSize);
-    tileRight = static_cast<int>(right / tileSize);
-    tileTop = static_cast<int>(top / tileSize);
-    tileBottom = static_cast<int>(bottom / tileSize);
+    // Dynamic tile mapping bounds recalculation after horizontal shift
+    int tileLeft = static_cast<int>(position.x / tileSize);
+    int tileRight = static_cast<int>((position.x + width - 0.1f) / tileSize); // Sub-pixel padding prevents corner-snagging
 
     if (velocity.y > 0.0f) {
+        int tileBottomPass = static_cast<int>((position.y + height) / tileSize);
         for (int x = tileLeft; x <= tileRight; ++x) {
-            if (m_mapPtr->isSolid(x, tileBottom)) {
-                position.y = tileBottom * tileSize - height;
+            if (m_mapPtr->isSolid(x, tileBottomPass)) {
+                position.y = tileBottomPass * tileSize - height;
                 velocity.y = 0.0f;
                 isGrounded = true;
                 break;
             }
         }
     } else if (velocity.y < 0.0f) {
+        int tileTopPass = static_cast<int>(position.y / tileSize);
         for (int x = tileLeft; x <= tileRight; ++x) {
-            if (m_mapPtr->isSolid(x, tileTop)) {
-                position.y = (tileTop + 1) * tileSize;
+            if (m_mapPtr->isSolid(x, tileTopPass)) {
+                position.y = (tileTopPass + 1) * tileSize;
                 velocity.y = 0.0f;
                 break;
             }
         }
     }
 
-    // update underlying SFML sprite position
+    // Sync graphics object with new clean coordinates
     shape.setPosition(position);
 }
 
