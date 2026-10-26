@@ -1,8 +1,10 @@
-# C++ Roguelite (Actual Game Name Here)
+# C++ Roguelite
+
+A 2D roguelite platformer game built from scratch using **C++17**, **SFML 2.6.1**, and the **CMake** build ecosystem. 
 
 ### Architecture
 * **Language:** C++17
-* **Graphics:** SFML 2.x (Graphics, Window, System)
+* **Graphics:** SFML 2.6.1
 * **Build System:** CMake
 
 
